@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Itinerary View</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+  }
+
+  header {
+    background: #2196F3;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .toggle {
+    text-align: right;
+    margin-bottom: 15px;
+  }
+
+  .toggle button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+    background: #4CAF50;
+    color: white;
+  }
+
+  .day {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .day h3 {
+    margin: 0;
+    color: #2196F3;
+  }
+
+  .city {
+    font-weight: bold;
+    margin: 10px 0;
+  }
+
+  .activity {
+    background: #e3f2fd;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* Calendar style */
+  .calendar .day {
+    display: flex;
+    gap: 15px;
+  }
+
+  .calendar .activity {
+    flex-direction: column;
+  }
+
+  .cost {
+    font-weight: bold;
+    color: #4CAF50;
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Trip Itinerary</h1>
+  <p>Review your complete travel plan</p>
+</header>
+
+<div class="container">
+
+  <div class="toggle">
+    <button onclick="setListView()">List View</button>
+    <button onclick="setCalendarView()">Calendar View</button>
+  </div>
+
+  <div id="itinerary">
+
+    <!-- Day 1 -->
+    <div class="day">
+      <h3>Day 1 – 10 Apr 2026</h3>
+      <div class="city">📍 Paris</div>
+
+      <div class="activity">
+        <span>09:00 – Eiffel Tower Visit</span>
+        <span class="cost">$30</span>
+      </div>
+
+      <div class="activity">
+        <span>14:00 – Louvre Museum</span>
+        <span class="cost">$25</span>
+      </div>
+    </div>
+
+    <!-- Day 2 -->
+    <div class="day">
+      <h3>Day 2 – 11 Apr 2026</h3>
+      <div class="city">📍 Paris</div>
+
+      <div class="activity">
+        <span>10:00 – Seine River Cruise</span>
+        <span class="cost">$20</span>
+      </div>
+
+      <div class="activity">
+        <span>16:00 – Local Shopping</span>
+        <span class="cost">$50</span>
+      </div>
+    </div>
+
+    <!-- Day 3 -->
+    <div class="day">
+      <h3>Day 3 – 12 Apr 2026</h3>
+      <div class="city">📍 Rome</div>
+
+      <div class="activity">
+        <span>09:30 – Colosseum Tour</span>
+        <span class="cost">$35</span>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  function setCalendarView() {
+    document.getElementById("itinerary").classList.add("calendar");
+  }
+
+  function setListView() {
+    document.getElementById("itinerary").classList.remove("calendar");
+  }
+</script>
+
+</body>
+</html>
