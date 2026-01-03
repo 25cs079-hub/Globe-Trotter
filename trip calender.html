@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Trip Calendar / Timeline</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+  }
+
+  header {
+    background: #2196F3;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .day-card {
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .day-header {
+    padding: 15px;
+    font-weight: bold;
+    background: #e3f2fd;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .activities {
+    display: none;
+    padding: 15px;
+  }
+
+  .activity {
+    background: #f0f4f8;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .activity button {
+    padding: 5px 8px;
+    border: none;
+    border-radius: 4px;
+    margin-left: 5px;
+    cursor: pointer;
+  }
+
+  .edit {
+    background: #FF9800;
+    color: white;
+  }
+
+  .delete {
+    background: #F44336;
+    color: white;
+  }
+
+  .updown {
+    background: #2196F3;
+    color: white;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Trip Calendar / Timeline</h1>
+  <p>Visualize your trip day by day</p>
+</header>
+
+<div class="container" id="calendar">
+
+  <!-- Example Day 1 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleActivities(this)">
+      Day 1 – 10 Apr 2026 – Paris
+      <span>▼</span>
+    </div>
+    <div class="activities">
+      <div class="activity">
+        <span>09:00 – Eiffel Tower</span>
+        <div>
+          <button class="updown" onclick="moveUp(this)">↑</button>
+          <button class="updown" onclick="moveDown(this)">↓</button>
+          <button class="edit">Edit</button>
+          <button class="delete" onclick="deleteActivity(this)">✖</button>
+        </div>
+      </div>
+      <div class="activity">
+        <span>14:00 – Louvre Museum</span>
+        <div>
+          <button class="updown" onclick="moveUp(this)">↑</button>
+          <button class="updown" onclick="moveDown(this)">↓</button>
+          <button class="edit">Edit</button>
+          <button class="delete" onclick="deleteActivity(this)">✖</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Example Day 2 -->
+  <div class="day-card">
+    <div class="day-header" onclick="toggleActivities(this)">
+      Day 2 – 11 Apr 2026 – Paris
+      <span>▼</span>
+    </div>
+    <div class="activities">
+      <div class="activity">
+        <span>10:00 – Seine River Cruise</span>
+        <div>
+          <button class="updown" onclick="moveUp(this)">↑</button>
+          <button class="updown" onclick="moveDown(this)">↓</button>
+          <button class="edit">Edit</button>
+          <button class="delete" onclick="deleteActivity(this)">✖</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function toggleActivities(header) {
+    const activities = header.nextElementSibling;
+    activities.style.display = activities.style.display === "block" ? "none" : "block";
+    header.querySelector("span").textContent = activities.style.display === "block" ? "▲" : "▼";
+  }
+
+  function deleteActivity(button) {
+    if(confirm("Delete this activity?")) {
+      button.closest(".activity").remove();
+    }
+  }
+
+  function moveUp(button) {
+    const activity = button.closest(".activity");
+    const prev = activity.previousElementSibling;
+    if(prev) activity.parentNode.insertBefore(activity, prev);
+  }
+
+  function moveDown(button) {
+    const activity = button.closest(".activity");
+    const next = activity.nextElementSibling;
+    if(next) activity.parentNode.insertBefore(next, activity);
+  }
+</script>
+
+</body>
+</html>
