@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Travel Dashboard</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f6f8;
+  }
+
+  header {
+    background: #2196F3;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  .card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .trip, .city {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  button {
+    padding: 10px 15px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #45a049;
+  }
+
+  .cities {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .city-card {
+    background: #e3f2fd;
+    padding: 15px;
+    border-radius: 8px;
+    width: 120px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .budget {
+    color: #4CAF50;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Welcome back, Traveler 👋</h1>
+  <p>Ready for your next adventure?</p>
+</header>
+
+<div class="container">
+
+  <!-- Quick Action -->
+  <div class="card">
+    <button onclick="planTrip()">➕ Plan New Trip</button>
+  </div>
+
+  <!-- Upcoming Trips -->
+  <div class="card">
+    <h2>Upcoming Trips</h2>
+    <div class="trip">
+      <span>Paris, France</span>
+      <span>15 Mar 2026</span>
+    </div>
+    <div class="trip">
+      <span>Tokyo, Japan</span>
+      <span>02 Jun 2026</span>
+    </div>
+  </div>
+
+  <!-- Budget Highlights -->
+  <div class="card">
+    <h2>Budget Highlights</h2>
+    <p>Total Budget: <span class="budget">$3,500</span></p>
+    <p>Spent So Far: <span class="budget">$1,250</span></p>
+  </div>
+
+  <!-- Recommended Destinations -->
+  <div class="card">
+    <h2>Recommended Destinations</h2>
+    <div class="cities">
+      <div class="city-card">Rome</div>
+      <div class="city-card">Dubai</div>
+      <div class="city-card">New York</div>
+      <div class="city-card">Bali</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function planTrip() {
+    alert("Redirecting to Plan New Trip page...");
+    // window.location.href = "plan-trip.html";
+  }
+</script>
+
+</body>
+</html>
