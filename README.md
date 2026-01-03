@@ -1,2 +1,15 @@
 # Globe-Trotter
 Globe Trotter is an intelligent travel-assistant platform designed to simplify global exploration. It helps users discover destinations, plan itineraries, track budgets, and access essential travel information in real time. The goal is to make travel smarter, faster, and stress-free.
+![Image](https://github.com/25cs079-hub/Globe-Trotter/blob/5e366d810e722c937bb2003df5a7c8c593e8247f/output/login.png)
+![Image](https://github.com/25cs079-hub/Globe-Trotter/blob/5e366d810e722c937bb2003df5a7c8c593e8247f/output/dashboard.png)
+![Image](https://github.com/25cs079-hub/Globe-Trotter/blob/5e366d810e722c937bb2003df5a7c8c593e8247f/output/Create%20Trip%20Screen.png)
+![Image](https://github.com/25cs079-hub/Globe-Trotter/blob/5e366d810e722c937bb2003df5a7c8c593e8247f/output/my%20trip.png)
+![Image](https://github.com/25cs079-hub/Globe-Trotter/blob/5e366d810e722c937bb2003df5a7c8c593e8247f/output/Itinerary%20Builder.png)
+![Image](https://github.com/25cs079-hub/Globe-Trotter/blob/5e366d810e722c937bb2003df5a7c8c593e8247f/output/Itinerary%20View.png)
+![Image](https://github.com/25cs079-hub/Globe-Trotter/blob/5e366d810e722c937bb2003df5a7c8c593e8247f/output/City%20search.png)
+![Image](https://github.com/25cs079-hub/Globe-Trotter/blob/5e366d810e722c937bb2003df5a7c8c593e8247f/output/Activity%20Search.png)
+![Image](https://github.com/25cs079-hub/Globe-Trotter/blob/5e366d810e722c937bb2003df5a7c8c593e8247f/output/Trip%20Budget.png)
+![Image](https://github.com/25cs079-hub/Globe-Trotter/blob/5e366d810e722c937bb2003df5a7c8c593e8247f/output/Trip%20calender.png)
+![Image](https://github.com/25cs079-hub/Globe-Trotter/blob/5e366d810e722c937bb2003df5a7c8c593e8247f/output/Shared%20Itinery%20view.png)
+![Image](https://github.com/25cs079-hub/Globe-Trotter/blob/5e366d810e722c937bb2003df5a7c8c593e8247f/output/user%20profile.png)
+![Image](https://github.com/25cs079-hub/Globe-Trotter/blob/5e366d810e722c937bb2003df5a7c8c593e8247f/output/user%20profile2.png)
