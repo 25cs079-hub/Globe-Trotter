@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Itinerary Builder</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+  }
+
+  header {
+    background: #2196F3;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+  }
+
+  .btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .add-stop {
+    background: #4CAF50;
+    color: white;
+    margin-bottom: 20px;
+  }
+
+  .stop-card {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .stop-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  input {
+    padding: 7px;
+    margin: 5px 0;
+    width: 100%;
+  }
+
+  .row {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .activities {
+    margin-top: 10px;
+  }
+
+  .activity {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 5px;
+  }
+
+  .small-btn {
+    background: #2196F3;
+    color: white;
+  }
+
+  .danger {
+    background: #F44336;
+    color: white;
+  }
+
+  .reorder button {
+    margin-left: 5px;
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Itinerary Builder</h1>
+  <p>Plan your trip day by day</p>
+</header>
+
+<div class="container">
+
+  <button class="btn add-stop" onclick="addStop()">➕ Add Stop</button>
+
+  <div id="stops"></div>
+
+</div>
+
+<script>
+  function addStop() {
+    const stopsDiv = document.getElementById("stops");
+
+    const stop = document.createElement("div");
+    stop.className = "stop-card";
+
+    stop.innerHTML = `
+      <div class="stop-header">
+        <h3>Trip Stop</h3>
+        <div class="reorder">
+          <button class="btn small-btn" onclick="moveUp(this)">↑</button>
+          <button class="btn small-btn" onclick="moveDown(this)">↓</button>
+          <button class="btn danger" onclick="deleteStop(this)">✖</button>
+        </div>
+      </div>
+
+      <label>City</label>
+      <input type="text" placeholder="Enter city name">
+
+      <div class="row">
+        <div>
+          <label>Start Date</label>
+          <input type="date">
+        </div>
+        <div>
+          <label>End Date</label>
+          <input type="date">
+        </div>
+      </div>
+
+      <div class="activities">
+        <label>Activities</label>
+        <div class="activity">
+          <input type="text" placeholder="Activity">
+          <button class="btn small-btn" onclick="addActivity(this)">+</button>
+        </div>
+      </div>
+    `;
+
+    stopsDiv.appendChild(stop);
+  }
+
+  function addActivity(button) {
+    const activitiesDiv = button.closest(".activities");
+
+    const activity = document.createElement("div");
+    activity.className = "activity";
+    activity.innerHTML = `
+      <input type="text" placeholder="Activity">
+      <button class="btn danger" onclick="this.parentElement.remove()">−</button>
+    `;
+
+    activitiesDiv.appendChild(activity);
+  }
+
+  function deleteStop(button) {
+    button.closest(".stop-card").remove();
+  }
+
+  function moveUp(button) {
+    const stop = button.closest(".stop-card");
+    if (stop.previousElementSibling) {
+      stop.parentNode.insertBefore(stop, stop.previousElementSibling);
+    }
+  }
+
+  function moveDown(button) {
+    const stop = button.closest(".stop-card");
+    if (stop.nextElementSibling) {
+      stop.parentNode.insertBefore(stop.nextElementSibling, stop);
+    }
+  }
+</script>
+
+</body>
+</html>
