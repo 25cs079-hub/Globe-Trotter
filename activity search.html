@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Activity Search</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+  }
+
+  header {
+    background: #2196F3;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  .activity-card {
+    background: white;
+    border-radius: 8px;
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .activity-card img {
+    width: 150px;
+    height: 100px;
+    border-radius: 6px;
+    object-fit: cover;
+  }
+
+  .activity-info {
+    flex: 1;
+  }
+
+  .activity-info h3 {
+    margin: 0;
+  }
+
+  .meta {
+    font-size: 14px;
+    color: #555;
+  }
+
+  .actions button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #4CAF50;
+    color: white;
+  }
+
+  .remove {
+    background: #F44336;
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Activity Search</h1>
+  <p>Find experiences for your trip</p>
+</header>
+
+<div class="container">
+
+  <!-- Filters -->
+  <div class="filters">
+    <select id="typeFilter" onchange="filterActivities()">
+      <option value="all">All Types</option>
+      <option value="Sightseeing">Sightseeing</option>
+      <option value="Food">Food</option>
+      <option value="Adventure">Adventure</option>
+    </select>
+
+    <select id="costFilter" onchange="filterActivities()">
+      <option value="all">All Costs</option>
+      <option value="Low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
+    </select>
+
+    <select id="durationFilter" onchange="filterActivities()">
+      <option value="all">All Durations</option>
+      <option value="1-2">1–2 hrs</option>
+      <option value="3-4">3–4 hrs</option>
+      <option value="5+">5+ hrs</option>
+    </select>
+  </div>
+
+  <!-- Activity List -->
+  <div id="activityList"></div>
+
+</div>
+
+<script>
+  const activities = [
+    {
+      name: "Eiffel Tower Visit",
+      type: "Sightseeing",
+      cost: "High",
+      duration: "1-2",
+      desc: "Visit the iconic Eiffel Tower.",
+      img: "https://www.afar.com/magazine/7-tips-for-visiting-the-eiffel-tower-without-the-crowdshttps://via.placeholder.com/150"
+    },
+    {
+      name: "Street Food Tour",
+      type: "Food",
+      cost: "Medium",
+      duration: "3-4",
+      desc: "Taste local street food.",
+      img: "https://www.summitsafari.com/tour/shimla-street-food-tour"
+    },
+    {
+      name: "Mountain Hiking",
+      type: "Adventure",
+      cost: "Low",
+      duration: "5+",
+      desc: "Enjoy a scenic hiking experience.",
+      img: "https://www.airoxnigen.com/?o=5586132031250"
+    }
+  ];
+
+  function displayActivities(list) {
+    const container = document.getElementById("activityList");
+    container.innerHTML = "";
+
+    list.forEach(activity => {
+      const card = document.createElement("div");
+      card.className = "activity-card";
+
+      card.innerHTML = `
+        <img src="${activity.img}">
+        <div class="activity-info">
+          <h3>${activity.name}</h3>
+          <p class="meta">${activity.type} • ${activity.duration} hrs • Cost: ${activity.cost}</p>
+          <p>${activity.desc}</p>
+        </div>
+        <div class="actions">
+          <button onclick="addActivity('${activity.name}', this)">Add</button>
+        </div>
+      `;
+
+      container.appendChild(card);
+    });
+  }
+
+  function filterActivities() {
+    const type = document.getElementById("typeFilter").value;
+    const cost = document.getElementById("costFilter").value;
+    const duration = document.getElementById("durationFilter").value;
+
+    const filtered = activities.filter(a =>
+      (type === "all" || a.type === type) &&
+      (cost === "all" || a.cost === cost) &&
+      (duration === "all" || a.duration === duration)
+    );
+
+    displayActivities(filtered);
+  }
+
+  function addActivity(name, button) {
+    alert(name + " added to itinerary!");
+    button.textContent = "Remove";
+    button.classList.add("remove");
+    button.onclick = () => removeActivity(name, button);
+  }
+
+  function removeActivity(name, button) {
+    alert(name + " removed from itinerary!");
+    button.textContent = "Add";
+    button.classList.remove("remove");
+    button.onclick = () => addActivity(name, button);
+  }
+
+  // Initial load
+  displayActivities(activities);
+</script>
+
+</body>
+</html>
